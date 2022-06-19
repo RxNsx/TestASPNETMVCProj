@@ -4,6 +4,9 @@
 
 //Подгрузить все данные из БД без перезагрузки страницы
 function loadData() {
+    $("#configuringRow").remove();
+    $("#configuringRowWithButtons").remove();
+
     $.ajax({
         url: "/ToolAccounts/List",
         type: "GET",
@@ -64,6 +67,7 @@ function addrow() {
 
             //Добавляем вторую строку для кнопок
             row = table.insertRow();
+            row.setAttribute("id","configuringRowWithButtons")
             cell = row.insertCell();
 
             //Если список пустой - удалить отображение дроплиста, оставить только кнопку Отмены
